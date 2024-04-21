@@ -7,13 +7,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>
-	<st:message code="app.title"></st:message>
-</title>
+<title><st:message code="app.title"></st:message></title>
+<c:url var="bootstrapCss" value="/resources/css/bootstrap.min.css"></c:url>
+<c:url var="bootstrapJs" value="/resources/css/bootstrap.bundle.min.js"></c:url>
+
+<script type="text/javascript" src="${bootstrapJs}"></script>
+<link rel="stylesheet" href="${bootstrapCss}" />
+
 </head>
 <body>
-	<h1>
-		<st:message code="app.title"></st:message>
-	</h1>
+
+	<div class="container">
+		<h1>
+			<st:message code="app.title"></st:message>
+		</h1>
+	</div>
+
 </body>
 </html>
