@@ -22,58 +22,44 @@
 			<st:message code="app.title"></st:message>
 		</h1>
 
+		<div class="row">
 
-		<div class="card">
-			<div class="card-header">Book Search</div>
+			<div class="col">
+				<c:url value="/views/imports/left-bar.jsp" var="importJSP"></c:url>
+				<c:import url="${importJSP}"></c:import>
 
-			<form action="#" class="card-body row">
+			</div>
 
-				<div class="col-auto">
-					<label class="col-form-label" for="category">Category</label>
+			<div class="col-9">
+
+				<div class="card">
+
+					<div class="card-header">Book Lists</div>
 				</div>
 
-				<div class="col-auto">
-					<select name="category" id="category" class="form-select">
-						<option value="">Search Category</option>
-					</select>
-				</div>
+				<div class="card-body">
 
-				<div class="col-auto">
-					<label class="col-form-label" for="keyword">Keyword</label>
-				</div>
+					<table class="table mt-4">
 
-				<div class="col-auto">
-					<input type="text" class="form-control" id="keyword"
-						placeholder="Search Keyword" />
-				</div>
+						<thead>
 
-				<div class="col-auto">
-					<button class="btn btn-dark">Search</button>
+							<tr>
+								<th>Id</th>
+								<th>Title</th>
+								<th>Author</th>
+								<th>Category</th>
+								<th>Price</th>
+								<th>Remark</th>
+							</tr>
 
-					<a href="#" class="btn btn-info">Upload File</a>
-
-					<c:url value="book/edit" var="bookEdit"></c:url>
-					<a href="${bookEdit}" class="btn btn-success">Add New</a>
+						</thead>
+					</table>
 
 				</div>
-			</form>
+			</div>
+
 		</div>
 
-		<table class="table mt-4">
-
-			<thead>
-
-				<tr>
-					<th>Id</th>
-					<th>Title</th>
-					<th>Author</th>
-					<th>Category</th>
-					<th>Price</th>
-					<th>Remark</th>
-				</tr>
-
-			</thead>
-		</table>
 	</div>
 
 </body>
