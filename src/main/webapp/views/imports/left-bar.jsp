@@ -5,7 +5,8 @@
 <div class="card">
 	<div class="card-header">Book Search</div>
 
-	<form action="#" class="card-body">
+	<c:url value="/book" var="searchUrl"></c:url>
+	<form action="${searchUrl}" class="card-body">
 
 		<div class="mb-4">
 			<label class="col-form-label" for="category">Category</label> <select
@@ -15,14 +16,15 @@
 		</div>
 
 		<div class="mb-4">
-			<label class="form-label" for="keyword">Keyword</label>
-			<input type="text" class="form-control" id="keyword" placeholder="Search Keyword" />
+			<label class="form-label" for="keyword">Keyword</label> <input
+				type="text" class="form-control" id="keyword" name="keyword"
+				placeholder="Search Keyword" />
 		</div>
 
 		<div class="d-grid gap-2">
-			<button class="btn btn-dark">Search</button>
+			<button class="btn btn-secondary">Search</button>
 
-			<a href="#" class="btn btn-info">Upload File</a>
+			<a href="#" class="btn btn-primary">Upload File</a>
 
 			<c:url value="book/edit" var="bookEdit"></c:url>
 			<a href="${bookEdit}" class="btn btn-success">Add New</a>
