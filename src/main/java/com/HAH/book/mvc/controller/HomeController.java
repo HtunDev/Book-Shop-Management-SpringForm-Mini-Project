@@ -27,7 +27,7 @@ public class HomeController {
 	private BookService bookService;
 
 	@GetMapping
-	String index(@RequestParam(required = false) int category, @RequestParam(required = false) String keyword,
+	String index(@RequestParam(required = false) Integer category, @RequestParam(required = false) String keyword,
 			ModelMap model) {
 
 		// search books with request parameters
