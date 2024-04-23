@@ -5,8 +5,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Service;
@@ -27,16 +28,21 @@ public class BookService {
 	@Autowired
 	private BookRowMapper bookRowMapper;
 
+	@PostConstruct
+	public void init() {
+		bookInsert.setTableName("book");
+		bookInsert.setGeneratedKeyName("id");
+	}
+
 	private static final String SELECT = """
 			select b.id, b.title, b.author, b.price, b.remark,
 			c.id categoryId, c.name categoryName from book b join category c
 			on c.id = b.category_id where 1 = 1
 			""";
-	
+
 	private static final String UPDATE = """
-			update book set title = :title,
-			author = :author, category_id = :category_id,
-			price = :price, remark = :remark 
+			update book set title = :title, author = :author, 
+			price = :price, remark = :remark, category_id = :category_id 
 			where id = :id
 			""";
 
@@ -76,7 +82,8 @@ public class BookService {
 		}
 
 		jdbcTemplate.update(UPDATE, book.getUpdateParams());
-		return 0; 
+		
+		return book.getId();
 	}
-
+ 
 }

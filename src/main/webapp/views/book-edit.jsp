@@ -38,7 +38,7 @@
 								<label for="">Category</label>
 								<form:select path="category" cssClass="form-select">
 									<option value="">Select One</option>
-									<form:options items="${categories}" itemLabel="name"/>
+									<form:options items="${categories}" itemValue="id" itemLabel="name"/>
 								</form:select>
 							</div>
 							<div class="col">
