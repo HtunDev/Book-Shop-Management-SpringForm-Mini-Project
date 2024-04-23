@@ -4,5 +4,6 @@
 /Users/htunaunghlaing/Desktop/Eclipse 2023-12/workspace/Book-Shop-Management-SpringForm-Mini-Project/src/main/java/com/HAH/book/mvc/controller/advice/CategoryControllerAdvice.java
 /Users/htunaunghlaing/Desktop/Eclipse 2023-12/workspace/Book-Shop-Management-SpringForm-Mini-Project/src/main/java/com/HAH/book/root/dto/Book.java
 /Users/htunaunghlaing/Desktop/Eclipse 2023-12/workspace/Book-Shop-Management-SpringForm-Mini-Project/src/main/java/com/HAH/book/root/dto/Category.java
+/Users/htunaunghlaing/Desktop/Eclipse 2023-12/workspace/Book-Shop-Management-SpringForm-Mini-Project/src/main/java/com/HAH/book/root/rowmapper/BookRowMapper.java
 /Users/htunaunghlaing/Desktop/Eclipse 2023-12/workspace/Book-Shop-Management-SpringForm-Mini-Project/src/main/java/com/HAH/book/root/service/BookService.java
 /Users/htunaunghlaing/Desktop/Eclipse 2023-12/workspace/Book-Shop-Management-SpringForm-Mini-Project/src/main/java/com/HAH/book/root/service/CategoryService.java

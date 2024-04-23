@@ -12,13 +12,16 @@
 			<label class="col-form-label" for="category">Category</label> <select
 				name="category" id="category" class="form-select">
 				<option value="">Search Category</option>
+
+				<c:forEach var="c" items="${categories}">
+					<option value="${c.id}">${c.name}</option>
+				</c:forEach>
 			</select>
 		</div>
 
 		<div class="mb-4">
-			<label class="form-label" for="keyword">Keyword</label> <input
-				type="text" class="form-control" id="keyword" name="keyword"
-				placeholder="Search Keyword" />
+			<label class="form-label" for="keyword">Keyword</label> 
+			<input type="text" class="form-control" id="keyword" name="keyword" placeholder="Search Keyword" />
 		</div>
 
 		<div class="d-grid gap-2">

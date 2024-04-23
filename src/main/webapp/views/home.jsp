@@ -18,7 +18,8 @@
 <body>
 
 	<div class="container">
-		<h1>
+	
+		<h1 class="mt-4 mb-4">
 			<st:message code="app.title"></st:message>
 		</h1>
 
@@ -27,9 +28,7 @@
 			<div class="col-9">
 
 				<div class="card">
-
 					<div class="card-header">Book Lists</div>
-				</div>
 
 				<div class="card-body">
 
@@ -47,10 +46,10 @@
 							</tr>
 
 						</thead>
+						
 					</table>
-
+					</div>
 				</div>
-
 			</div>
 
 			<div class="col">

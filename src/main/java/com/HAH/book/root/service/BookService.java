@@ -76,7 +76,7 @@ public class BookService {
 		}
 
 		jdbcTemplate.update(UPDATE, book.getUpdateParams());
-		return 0;
+		return 0; 
 	}
 
 }
