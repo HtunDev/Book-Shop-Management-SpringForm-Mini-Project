@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.HAH.book.root.dto.Book;
+import com.HAH.book.root.rowmapper.BookRowMapper;
 
 @Service
 public class BookService {
@@ -21,17 +22,22 @@ public class BookService {
 	private SimpleJdbcInsert bookInsert;
 
 	@Autowired
-	private SimpleJdbcInsert categoryInsert;
-
-	@Autowired
 	private NamedParameterJdbcTemplate jdbcTemplate;
 
-	private RowMapper<Book> bookRowMapper;
+	@Autowired
+	private BookRowMapper bookRowMapper;
 
 	private static final String SELECT = """
 			select b.id, b.title, b.author, b.price, b.remark,
 			c.id categoryId, c.name categoryName from book b join category c
 			on c.id = b.category_id where 1 = 1
+			""";
+	
+	private static final String UPDATE = """
+			update book set title = :title,
+			author = :author, category_id = :category_id,
+			price = :price, remark = :remark 
+			where id = :id
 			""";
 
 	public List<Book> search(Integer category, String keyword) {
@@ -64,7 +70,12 @@ public class BookService {
 	}
 
 	public int save(Book book) {
-		// TODO Auto-generated method stub
+
+		if (book.getId() == 0) {
+			return bookInsert.executeAndReturnKeyHolder(book.getInsertParams()).getKey().intValue();
+		}
+
+		jdbcTemplate.update(UPDATE, book.getUpdateParams());
 		return 0;
 	}
 
