@@ -26,44 +26,51 @@
 		<div class="row">
 			<div class="col-9">
 				<div class="card">
-					<div class="card-header">Book Edit</div>
+					<div class="card-header">${ book.id eq 0 ? 'Add New' : 'Edit'}
+						Book</div>
 
-					<form:form action="/book" cssClass="card-body" modelAttribute="book">
+					<form:form action="/book" cssClass="card-body"
+						modelAttribute="book">
 
 						<form:hidden path="id" />
-						
+
 						<div class="row">
-						
+
 							<div class="col">
 								<label for="">Category</label>
 								<form:select path="category" cssClass="form-select">
 									<option value="">Select One</option>
-									<form:options items="${categories}" itemValue="id" itemLabel="name"/>
+									<form:options items="${categories}" itemValue="id" itemLabel="name" />
 								</form:select>
+								<form:errors path="category" cssClass="text-danger"></form:errors>
 							</div>
 							<div class="col">
 								<label>Book Title</label>
-								<form:input path="title" type="text" cssClass="form-control" placeholder="Enter Book Title"/>
+								<form:input path="title" type="text" cssClass="form-control" placeholder="Enter Book Title" />
+								<form:errors path="title" cssClass="text-danger"></form:errors>
+								
 							</div>
 							<div class="col">
 								<label>Author</label>
-								<form:input path="author" type="text" cssClass="form-control" placeholder="Enter Book's Author"/>
+								<form:input path="author" type="text" cssClass="form-control" placeholder="Enter Book's Author" />
+								<form:errors path="author" cssClass="text-danger"></form:errors>
 							</div>
 						</div>
-						
+
 						<div class="row mt-3">
-						
+
 							<div class="col-4">
 								<label>Price</label>
 								<form:input path="price" type="number" cssClass="form-control" placeholder="Enter Book's Price" />
+								<form:errors path="price" cssClass="text-danger"></form:errors>
 							</div>
-							
+
 							<div class="col">
 								<label>Remark</label>
-								<form:input path="remark" type="text" cssClass="form-control" placeholder="Enter Remark"/>
+								<form:input path="remark" type="text" cssClass="form-control" placeholder="Enter Remark" />
 							</div>
 						</div>
-						
+
 						<div class="row mt-3">
 							<div class="col">
 								<button class="btn btn-primary">Save Book</button>

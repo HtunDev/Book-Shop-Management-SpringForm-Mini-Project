@@ -29,7 +29,7 @@
 
 			<a href="#" class="btn btn-primary">Upload File</a>
 
-			<c:url value="book/edit" var="bookEdit"></c:url>
+			<c:url value="/book/edit" var="bookEdit"></c:url>
 			<a href="${bookEdit}" class="btn btn-success">Add New</a>
 
 		</div>
