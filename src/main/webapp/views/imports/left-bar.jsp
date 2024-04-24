@@ -35,11 +35,20 @@
 		<div class="d-grid gap-2">
 			<button class="btn btn-secondary">Search</button>
 
-			<a href="#" class="btn btn-primary">Upload File</a>
+			<a href="#" id="uploadButton" class="btn btn-primary">Upload File</a>
 
 			<c:url value="/book/edit" var="bookEdit"></c:url>
 			<a href="${bookEdit}" class="btn btn-success">Add New</a>
 
 		</div>
 	</form>
+	
+	<c:url value="/upload" var="upload"></c:url>
+	<form action="${upload}" method="post" id="uploadForm" class="d-none" enctype="multipart/form-data">
+		<input id="uploadInput" type="file" name="uploadFile" />
+	</form>
+
+	<c:url value="/resources/js/upload.js" var="uploadJs"></c:url>
+	<script src="${uploadJs}"></script>
+</div>
 </div>

@@ -28,6 +28,7 @@
 			<param-value>com.HAH.book.configuration.MVCconfig</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
+		<multipart-config></multipart-config>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>DispatcherServlet</servlet-name>
