@@ -18,7 +18,7 @@
 <body>
 
 	<div class="container">
-	
+
 		<h1 class="mt-4 mb-4">
 			<st:message code="app.title"></st:message>
 		</h1>
@@ -30,24 +30,41 @@
 				<div class="card">
 					<div class="card-header">Book Lists</div>
 
-				<div class="card-body">
+					<div class="card-body">
 
-					<table class="table mt-4">
+						<table class="table table-striped">
 
-						<thead>
+							<thead>
 
-							<tr>
-								<th>Id</th>
-								<th>Title</th>
-								<th>Author</th>
-								<th>Category</th>
-								<th>Price</th>
-								<th>Remark</th>
-							</tr>
+								<tr>
+									<th>Id</th>
+									<th>Title</th>
+									<th>Author</th>
+									<th>Category</th>
+									<th>Price</th>
+									<th>Remark</th>
+								</tr>
 
-						</thead>
-						
-					</table>
+							</thead>
+
+							<tbody>
+
+								<c:forEach var="book" items="${bookLists}">
+									<tr>
+										<td>${book.id}</td>
+										<td><c:url value="/book/edit" var="editLink">
+												<c:param name="id" value="${book.id}"></c:param>
+											</c:url> <a href="${editLink}">${book.title}</a></td>
+										<td>${book.author}</td>
+										<td>${book.category.name}</td>
+										<td>${book.price}</td>
+										<td>${book.remark}</td>
+									</tr>
+								</c:forEach>
+
+							</tbody>
+
+						</table>
 					</div>
 				</div>
 			</div>

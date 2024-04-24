@@ -9,19 +9,27 @@
 	<form action="${searchUrl}" class="card-body">
 
 		<div class="mb-4">
-			<label class="col-form-label" for="category">Category</label> <select
-				name="category" id="category" class="form-select">
+			<label class="form-label" for="category">Category</label> 
+			<select id="category" name="category" class="form-select">
 				<option value="">Search Category</option>
-
 				<c:forEach var="c" items="${categories}">
-					<option value="${c.id}">${c.name}</option>
+					<c:choose>
+						<c:when test="${c.id eq params.category}">
+							<option value="${c.id}" selected="selected">${c.name}</option>
+						</c:when>
+						
+						<c:otherwise>
+							<option value="${c.id}">${c.name}</option>
+						</c:otherwise>
+					</c:choose>
 				</c:forEach>
 			</select>
 		</div>
 
 		<div class="mb-4">
 			<label class="form-label" for="keyword">Keyword</label> 
-			<input type="text" class="form-control" id="keyword" name="keyword" placeholder="Search Keyword" />
+			<input type="text" class="form-control" id="keyword" name="keyword"
+				value="${params.keyword}" placeholder="Search Keyword" />
 		</div>
 
 		<div class="d-grid gap-2">

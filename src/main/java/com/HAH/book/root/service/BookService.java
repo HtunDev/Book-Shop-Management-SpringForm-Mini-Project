@@ -49,7 +49,6 @@ public class BookService {
 	public List<Book> search(Integer category, String keyword) {
 
 		StringBuffer sb = new StringBuffer(SELECT);
-
 		Map<String, Object> params = new HashMap<>();
 
 		if (null != category) {
@@ -64,7 +63,7 @@ public class BookService {
 					or lower(b.author) like :keyword
 					or lower(c.name) like :keyword
 					)""");
-			params.put("keywoord", keyword.toLowerCase().concat("%"));
+			params.put("keyword", keyword.toLowerCase().concat("%"));
 		}
 		return jdbcTemplate.query(sb.toString(), params, bookRowMapper);
 	}
